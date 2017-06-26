@@ -47,13 +47,9 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <Button fx:id="buttDot" layoutX="105.0" layoutY="238.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="37.0" text="." />
+      <Button fx:id="buttDot" layoutX="105.0" layoutY="238.0" mnemonicParsing="false" onAction="#kropka" prefHeight="42.0" prefWidth="37.0" text="." />
       <Button fx:id="buttC" layoutX="198.0" layoutY="125.0" mnemonicParsing="false" onAction="#delete" prefHeight="42.0" prefWidth="85.0" text="C" />
       <Button fx:id="buttWynik" layoutX="198.0" layoutY="181.0" mnemonicParsing="false" onAction="#rozwiazanie" prefHeight="99.0" prefWidth="85.0" text="=" />
-      <Label fx:id="labError" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="327.0" prefHeight="17.0" prefWidth="245.0">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
+      <Label fx:id="labError" alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" layoutY="327.0" prefHeight="21.0" prefWidth="293.0" />
    </children>
 </Pane>

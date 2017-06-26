@@ -26,7 +26,7 @@ public class Controller{
 
     TextField currText = textFieldLiczba1;
 
-    int numDzialania=0;
+    int numDzialania = 0;
 
     public void changeCurrTextField(){
         // currText - Brakuje mi dojścia do aktualnego TextFielda
@@ -74,10 +74,19 @@ public class Controller{
             currText.setText(currText.getText().substring(0,currText.getText().length()-1));
         }
     }
+    public void kropka()throws RuntimeException{
+        try {
+            if (!currText.getText().contains(".")) {
+                currText.setText(currText.getText() + ".");
+            }
+        }catch (RuntimeException exc){
+            labError.setText("Kropka w tym miejscu się nie przyda !");
+        }
+    }
     public void rozwiazanie() throws RuntimeException{
         try{
-            int liczba1 = Integer.valueOf(textFieldLiczba1.getText());
-            int liczba2 = Integer.valueOf(textFieldLiczba2.getText());
+            double liczba1 = Double.valueOf(textFieldLiczba1.getText());
+            double liczba2 = Double.valueOf(textFieldLiczba2.getText());
             switch (numDzialania){
                 case 0: labError.setText("Nie wybrano działania !");
                     break;
@@ -99,8 +108,7 @@ public class Controller{
                     break;
             }
         }catch (RuntimeException exc){
-            labWynik.setText("Coś poszło nie tak !");
-            labError.setText("Popraw pola liczbowe !");
+            labError.setText("Coś poszło nie tak ! Popraw pola liczbowe !");
         }
     }
 }
