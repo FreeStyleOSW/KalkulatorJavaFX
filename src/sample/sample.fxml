@@ -31,7 +31,7 @@
                <Font size="21.0" />
            </font>
        </Label>
-       <Label fx:id="labWynik" layoutX="33.0" layoutY="298.0" prefHeight="30.0" prefWidth="254.0">
+       <Label fx:id="labWynik" layoutX="42.0" layoutY="298.0" prefHeight="30.0" prefWidth="245.0">
            <font>
                <Font size="20.0" />
            </font>
@@ -50,5 +50,10 @@
       <Button fx:id="buttDot" layoutX="105.0" layoutY="238.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="37.0" text="." />
       <Button fx:id="buttC" layoutX="198.0" layoutY="125.0" mnemonicParsing="false" onAction="#delete" prefHeight="42.0" prefWidth="85.0" text="C" />
       <Button fx:id="buttWynik" layoutX="198.0" layoutY="181.0" mnemonicParsing="false" onAction="#rozwiazanie" prefHeight="99.0" prefWidth="85.0" text="=" />
+      <Label fx:id="labError" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="327.0" prefHeight="17.0" prefWidth="245.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

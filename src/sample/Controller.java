@@ -21,11 +21,14 @@ public class Controller{
     @FXML
     Label labDzialanie;
 
+    @FXML
+    Label labError;
+
     TextField currText = textFieldLiczba1;
 
-    int numDzialania;
+    int numDzialania=0;
 
-    public void changeCurrTextField(ActionEvent event){
+    public void changeCurrTextField(){
         // currText - Brakuje mi dojścia do aktualnego TextFielda
         System.out.println("Działa");
     }
@@ -43,26 +46,21 @@ public class Controller{
     public void dzielenie(){
         currText = textFieldLiczba2;
         labDzialanie.setText("/");
-        numDzialania = 0;
+        numDzialania = 1;
     }
     public void mnozenie(){
         currText = textFieldLiczba2;
         labDzialanie.setText("*");
-        numDzialania = 1;
+        numDzialania = 2;
     }
     public void odejmowanie(){
         currText = textFieldLiczba2;
         labDzialanie.setText("-");
-        numDzialania = 2;
+        numDzialania = 3;
     }
     public void dodawanie(){
         currText = textFieldLiczba2;
         labDzialanie.setText("+");
-        numDzialania = 3;
-    }
-    public void pierwiastkowanie(){
-        currText = textFieldLiczba2;
-        labDzialanie.setText("√");
         numDzialania = 4;
     }
     public void deleteAll() {
@@ -72,21 +70,37 @@ public class Controller{
         currText = textFieldLiczba1;
     }
     public void delete(){
-        String currString = currText.getText();
-        currText.setText(currString.substring(0,currString.length()-1));
+        if (currText.getText().length() > 0){
+            currText.setText(currText.getText().substring(0,currText.getText().length()-1));
+        }
     }
-    public void rozwiazanie(){
-        int liczba1 = Integer.valueOf(textFieldLiczba1.getText());
-        int liczba2 = Integer.valueOf(textFieldLiczba2.getText());
-        switch (numDzialania){
-            case 0: labWynik.setText(""+(liczba1/liczba2));
-                break;
-            case 1: labWynik.setText(""+(liczba1*liczba2));
-                break;
-            case 2: labWynik.setText(""+(liczba1-liczba2));
-                break;
-            case 3: labWynik.setText(""+(liczba1+liczba2));
-                break;
+    public void rozwiazanie() throws RuntimeException{
+        try{
+            int liczba1 = Integer.valueOf(textFieldLiczba1.getText());
+            int liczba2 = Integer.valueOf(textFieldLiczba2.getText());
+            switch (numDzialania){
+                case 0: labError.setText("Nie wybrano działania !");
+                    break;
+                case 1:
+                    labWynik.setText(""+(liczba1/liczba2));
+                    labError.setText("");
+                    break;
+                case 2:
+                    labWynik.setText(""+(liczba1*liczba2));
+                    labError.setText("");
+                    break;
+                case 3:
+                    labWynik.setText(""+(liczba1-liczba2));
+                    labError.setText("");
+                    break;
+                case 4:
+                    labWynik.setText(""+(liczba1+liczba2));
+                    labError.setText("");
+                    break;
+            }
+        }catch (RuntimeException exc){
+            labWynik.setText("Coś poszło nie tak !");
+            labError.setText("Popraw pola liczbowe !");
         }
     }
 }
