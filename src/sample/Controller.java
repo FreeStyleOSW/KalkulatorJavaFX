@@ -3,14 +3,8 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
-import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
 
 
 public class Controller{
@@ -29,7 +23,7 @@ public class Controller{
 
     TextField currText = textFieldLiczba1;
 
-    int dzialanie;
+    int numDzialania;
 
     public void changeCurrTextField(ActionEvent event){
         // currText - Brakuje mi dojścia do aktualnego TextFielda
@@ -40,8 +34,6 @@ public class Controller{
         if (currText == null){
             currText = textFieldLiczba1;
         }
-//        Nie moge przypisac do currText - textFieldLiczba1
-//        currText = textFieldLiczba1;
         String curr = currText.getText();
         String but = event.getSource().toString();
         String currButt = but.substring(14,15);
@@ -51,27 +43,27 @@ public class Controller{
     public void dzielenie(){
         currText = textFieldLiczba2;
         labDzialanie.setText("/");
-        dzialanie = 0;
+        numDzialania = 0;
     }
     public void mnozenie(){
         currText = textFieldLiczba2;
         labDzialanie.setText("*");
-        dzialanie = 1;
+        numDzialania = 1;
     }
     public void odejmowanie(){
         currText = textFieldLiczba2;
         labDzialanie.setText("-");
-        dzialanie = 2;
+        numDzialania = 2;
     }
     public void dodawanie(){
         currText = textFieldLiczba2;
         labDzialanie.setText("+");
-        dzialanie = 3;
+        numDzialania = 3;
     }
     public void pierwiastkowanie(){
         currText = textFieldLiczba2;
         labDzialanie.setText("√");
-        dzialanie = 4;
+        numDzialania = 4;
     }
     public void deleteAll() {
         textFieldLiczba1.setText("");
@@ -82,5 +74,19 @@ public class Controller{
     public void delete(){
         String currString = currText.getText();
         currText.setText(currString.substring(0,currString.length()-1));
+    }
+    public void rozwiazanie(){
+        int liczba1 = Integer.valueOf(textFieldLiczba1.getText());
+        int liczba2 = Integer.valueOf(textFieldLiczba2.getText());
+        switch (numDzialania){
+            case 0: labWynik.setText(""+(liczba1/liczba2));
+                break;
+            case 1: labWynik.setText(""+(liczba1*liczba2));
+                break;
+            case 2: labWynik.setText(""+(liczba1-liczba2));
+                break;
+            case 3: labWynik.setText(""+(liczba1+liczba2));
+                break;
+        }
     }
 }
