@@ -1,5 +1,9 @@
 package sample;
-
+/**
+ * Źle pokazuje wynik przy 0.3333 - 0.3331
+ *  - Zmienić ilość miejsc po przecinku
+ *  - Po zmianie TextField'a można wydrukować kropka (tak nie powinno być !)
+ */
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,13 +37,11 @@ public class Controller{
     public void changeCurrTextField(MouseEvent ev){
         currText = (TextField) ev.getSource();
     }
-
     public void printButtonOnTextField(ActionEvent event){
         if (currText == null) currText = textFieldLiczba1;
         Button currButt = (Button) event.getSource();
         currText.setText(currText.getText() + currButt.getText());
     }
-
     public void dzielenie(){
         currText = textFieldLiczba2;
         labDzialanie.setText("/");
@@ -72,7 +74,6 @@ public class Controller{
         }
     }
     public void kropka()throws RuntimeException{
-//        Pojawia się kropka po przejsciu na drugie pole
         try {
             if (!currText.getText().contains(".")) {
                 currText.setText(currText.getText() + ".");
