@@ -3,8 +3,10 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 
 public class Controller{
@@ -28,19 +30,14 @@ public class Controller{
 
     int numDzialania = 0;
 
-    public void changeCurrTextField(){
-        // currText - Brakuje mi dojścia do aktualnego TextFielda
-        System.out.println("Działa");
+    public void changeCurrTextField(MouseEvent ev){
+        currText = (TextField) ev.getSource();
     }
 
     public void printButtonOnTextField(ActionEvent event){
-        if (currText == null){
-            currText = textFieldLiczba1;
-        }
-        String curr = currText.getText();
-        String but = event.getSource().toString();
-        String currButt = but.substring(14,15);
-        currText.setText(curr+currButt);
+        if (currText == null) currText = textFieldLiczba1;
+        Button currButt = (Button) event.getSource();
+        currText.setText(currText.getText() + currButt.getText());
     }
 
     public void dzielenie(){
@@ -75,6 +72,7 @@ public class Controller{
         }
     }
     public void kropka()throws RuntimeException{
+//        Pojawia się kropka po przejsciu na drugie pole
         try {
             if (!currText.getText().contains(".")) {
                 currText.setText(currText.getText() + ".");
