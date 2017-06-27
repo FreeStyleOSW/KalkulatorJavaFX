@@ -12,6 +12,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
+import java.text.DecimalFormat;
+
 
 public class Controller{
 
@@ -84,25 +86,28 @@ public class Controller{
     }
     public void rozwiazanie() throws RuntimeException{
         try{
-            double liczba1 = Double.valueOf(textFieldLiczba1.getText());
-            double liczba2 = Double.valueOf(textFieldLiczba2.getText());
+            Double liczba1 = Double.valueOf(textFieldLiczba1.getText());
+            Double liczba2 = Double.valueOf(textFieldLiczba2.getText());
+            DecimalFormat df = new DecimalFormat();
+            df.setMinimumFractionDigits(0);
+            df.setMaximumFractionDigits(10);
             switch (numDzialania){
                 case 0: labError.setText("Nie wybrano działania !");
                     break;
                 case 1:
-                    labWynik.setText(""+(liczba1/liczba2));
+                    labWynik.setText(""+df.format(liczba1/liczba2));
                     labError.setText("");
                     break;
                 case 2:
-                    labWynik.setText(""+(liczba1*liczba2));
+                    labWynik.setText(""+df.format(liczba1*liczba2));
                     labError.setText("");
                     break;
                 case 3:
-                    labWynik.setText(""+(liczba1-liczba2));
+                    labWynik.setText(""+df.format(liczba1-liczba2));
                     labError.setText("");
                     break;
                 case 4:
-                    labWynik.setText(""+(liczba1+liczba2));
+                    labWynik.setText(""+df.format(liczba1+liczba2));
                     labError.setText("");
                     break;
             }
