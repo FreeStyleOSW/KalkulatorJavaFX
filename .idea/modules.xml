@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Rapsod.iml" filepath="$PROJECT_DIR$/Rapsod.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KalkulatorFX.iml" filepath="$PROJECT_DIR$/KalkulatorFX.iml" />
     </modules>
   </component>
 </project>

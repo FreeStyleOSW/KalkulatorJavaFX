@@ -1,9 +1,4 @@
 package sample;
-/**
- * Źle pokazuje wynik przy 0.3333 - 0.3331
- *  - Zmienić ilość miejsc po przecinku
- *  - Po zmianie TextField'a można wydrukować kropka (tak nie powinno być !)
- */
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -116,3 +111,5 @@ public class Controller{
         }
     }
 }
+//todo: Po zmianie TextField'a można wydrukować kropkę (Tak nie powinno być !)
+//todo: Po usunięciu cyfr przyciskiem "C" wyskakują błędy
