@@ -1,5 +1,5 @@
 package sample;
-// Commit Test
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -30,6 +30,15 @@ public class Controller{
     TextField currText = textFieldLiczba1;
 
     int numDzialania = 0;
+
+    public Controller() {
+    }
+
+    @FXML
+    void initialize() {
+        this.currText = textFieldLiczba1;
+        System.out.println(textFieldLiczba1);
+    }
 
     public void changeCurrTextField(MouseEvent ev){
         currText = (TextField) ev.getSource();
@@ -72,7 +81,8 @@ public class Controller{
     }
     public void kropka()throws RuntimeException{
         try {
-            if (!currText.getText().contains(".")) {
+            if (currText.getText().length()==0) currText.setText("0");
+            if (!currText.getText().contains(".") ) {
                 currText.setText(currText.getText() + ".");
             }
         }catch (RuntimeException exc){
