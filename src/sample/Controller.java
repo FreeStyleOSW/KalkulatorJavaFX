@@ -27,9 +27,14 @@ public class Controller{
     @FXML
     Label labError;
 
-    TextField currText = textFieldLiczba1;
+    TextField currText;
 
     int numDzialania = 0;
+
+    @FXML
+    public void initialize() {
+        this.currText = textFieldLiczba1;
+    }
 
     public void changeCurrTextField(MouseEvent ev){
         currText = (TextField) ev.getSource();
@@ -72,6 +77,7 @@ public class Controller{
     }
     public void kropka()throws RuntimeException{
         try {
+            if (currText.getText().length() == 0) currText.setText("0");
             if (!currText.getText().contains(".")) {
                 currText.setText(currText.getText() + ".");
             }
@@ -111,5 +117,3 @@ public class Controller{
         }
     }
 }
-//todo: Po zmianie TextField'a można wydrukować kropkę (Tak nie powinno być !)
-//todo: Po usunięciu cyfr przyciskiem "C" wyskakują błędy
