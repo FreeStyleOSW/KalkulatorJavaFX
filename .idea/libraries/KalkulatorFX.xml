@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="KalkulatorFX">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/KalkulatorFX_jar/KalkulatorFX.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
